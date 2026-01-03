@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Login</h2>
+
+  <form onsubmit="return login()">
+    <input id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button type="submit">Login</button>
+    <p id="msg"></p>
+  </form>
+</div>
+
+<script>
+async function login() {
+  const res = await fetch("http://localhost:5000/login", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      email: email.value,
+      password: password.value
+    })
+  });
+
+  const data = await res.json();
+  msg.innerText = data.message;
+  msg.style.color = res.ok ? "green" : "red";
+
+  if (res.ok) {
+    window.location.href = "dashboard.html";
+  }
+  return false;
+}
+</script>
+
+</body>
+</html>

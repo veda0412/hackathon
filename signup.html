@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Sign Up</h2>
+
+<form onsubmit="return signupValidation()">
+    <label>Employee ID</label>
+    <input type="text" id="empId">
+    <span class="error" id="empError"></span>
+
+    <label>Email</label>
+    <input type="email" id="email">
+    <span class="error" id="emailError"></span>
+
+    <label>Password</label>
+    <input type="password" id="password">
+    <span class="error" id="passError"></span>
+
+    <label>Role</label>
+    <select id="role">
+        <option value="">Select Role</option>
+        <option>Employee</option>
+        <option>HR</option>
+    </select>
+    <span class="error" id="roleError"></span>
+
+    <button type="submit">Register</button>
+</form>
+
+<p>Already registered? <a href="signin.html">Sign In</a></p>
+
+<script src="auth.js"></script>
+</body>
+</html>
